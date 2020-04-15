@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
     has_secure_password
     has_many :events
     has_many :reserved_events, through: :reservations, source: events
+    has_many :reviews
 end 
