@@ -1,20 +1,29 @@
 <h1>Sign Up</h1>
 
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
+    <% if @user.errors.any? %>
+        <h2>Account was unable to be created because:</h2>
+        <ul>
+            <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+        </ul>
+    <% end %>
+
     <%= f.label :first_name %><br/>
-    <%= f.text_field :first_name %><br/>
+    <%= f.text_field :first_name, required: true%><br/>
 
     <%= f.label :last_name %><br/>
-    <%= f.text_field :last_name %><br/>
+    <%= f.text_field :last_name, required: true %><br/>
   
     <%= f.label :email %><br/>
-    <%= f.email_field :email %><br/>
+    <%= f.email_field :email, required: true %><br/>
 
     <%= f.label :password %><br/>
-    <%= f.password_field :password %><br/>
+    <%= f.password_field :password, required: true %><br/>
   
-    <%= f.label :password_confirmation %><br/>
-    <%= f.password_field :password_confirmation %><br/>
+    <%= f.label :password_confirmation, "Confirm Password" %><br/>
+    <%= f.password_field :password_confirmation, required: true %><br/>
   
     <%= f.submit "Sign Up!" %>
 <% end %>

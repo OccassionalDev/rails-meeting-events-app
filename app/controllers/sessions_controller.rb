@@ -11,10 +11,11 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id 
             redirect_to root_url, notice: "Successfully logged in as #{user.full_name}"
         else 
-            render "new", alert: "Email or password is invalid"
+            redirect_to login_path, alert: "Email or password is invalid"
         end 
     end 
 
     def destroy
+        session.delete :user_id
     end 
 end 

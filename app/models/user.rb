@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :email
 
     has_many :events
-    has_many :reserved_events, through: :reservations, source: :events
+    # has_many :reserved_events, through: :reservations, source: :event
     has_many :reviews
 
     def full_name

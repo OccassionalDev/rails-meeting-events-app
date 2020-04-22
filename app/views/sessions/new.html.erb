@@ -1,13 +1,19 @@
 <h1>Log In</h1>
 
-<%= form_tag(sessions_path) do %>
+<% if flash[:alert] != nil %>
+  <p><%= flash[:alert] %></p>
+<% end %>
+
+
+<%= form_tag(login_path) do %>
   <%= label_tag :email %><br/>
   <%= email_field_tag :email %><br/>
 
   <%= label_tag :password %><br/>
   <%= password_field_tag :password %><br/>
 
-  <%= submit_tag "Log In" %>
+  <%= submit_tag "Log In" %><br/>
 
-    Or <%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>
-  <% end %>
+  Or <%= link_to(controller: 'users', action: 'new') { 'Login with Github' } %><br/>
+  New User? <%= link_to(controller: 'users', action: 'new') { 'Click here to sign Up' } %>
+<% end %>

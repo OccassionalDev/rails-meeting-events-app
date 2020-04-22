@@ -16,8 +16,11 @@ class UsersController < ApplicationController
           redirect_to root_url, notice: "Account succesfully created!"
         
         else 
-          redirect_to(action: 'new', controller: 'users')
+         render "new"
         end 
+    end 
+
+    def show 
     end 
 
   private 
