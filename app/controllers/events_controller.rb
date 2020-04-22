@@ -15,7 +15,7 @@ class EventsController < ApplicationController
         @event = current_user.events.build(events_params)
 
         if @event.save
-            redirect_to root_url
+            redirect_to root_url, notice: "Your event was succesfully created!"
         else 
             render 'new'
         end 

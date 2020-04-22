@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-    validates_presence_of :user_id, :title, :description, :address, :time
+    validates_presence_of :user_id, :title, :description, :address, :start_time, :end_time, :date
     validate :valid_address?
     
     belongs_to :user
