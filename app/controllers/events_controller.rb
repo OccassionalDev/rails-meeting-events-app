@@ -1,4 +1,5 @@
 class EventsController < ApplicationController
+    before_action :require_login, only: [:new, :create, :edit, :update]
     
     def index
     end 
@@ -22,6 +23,19 @@ class EventsController < ApplicationController
         end 
     end 
 
+    def edit 
+        @event = Event.find(params[:id])
+    end 
+
+    def update
+        if is_event_creator?(@event)
+            @event.update(event_params)
+            redirect_to root_url, notice: "The event was succesfully updated."
+        else 
+            redirect_to root_url, alert: "You cannot edit this event."
+        end 
+    end 
+
     def destroy
     end 
 
@@ -29,5 +43,5 @@ class EventsController < ApplicationController
 
     def events_params(*args)
         params.require(:event).permit(:title, :description, :date, :address, :start_time, :end_time)
-    end 
+    end  
 end 
