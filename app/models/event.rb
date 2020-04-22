@@ -4,7 +4,8 @@ class Event < ActiveRecord::Base
     validate :date_of_event_cannot_be_in_past, on: :create
     
     belongs_to :user
-    #has_many :attending_users, through: :reservations, source: :user
+    has_many :reservations
+    has_many :attending_users, through: :reservations, source: :user
     has_many :reviews
 
     def valid_address?
