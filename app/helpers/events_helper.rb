@@ -4,6 +4,6 @@ module EventsHelper
     end 
 
     def time_of(event)
-        event.start_time.to_time.strftime("%l:%M %p")
+        "#{event.start_time.to_time.strftime("%l:%M %p")} - #{event.end_time.to_time.strftime("%l:%M %p")}"
     end 
 end 

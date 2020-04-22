@@ -1,0 +1,8 @@
+<h1><%= @event.title %></h1>
+<h2>Hosted By: <%= @event.user.full_name %></h2>
+
+<h3><%= date_of @event %> from <%= time_of @event %></h3>
+
+
+<h3>About</h3>
+<p><%= @event.description %></p>
