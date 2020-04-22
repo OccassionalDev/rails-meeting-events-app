@@ -1,5 +1,10 @@
-<h1>Welcome!</h1>
+<h1>Reservable Events</h1>
 
-<% if logged_in? %>
-    <p>Welcome back, <%= current_user.full_name %>!</p>
-<% end %>
+<div class="wrapper">
+    <% @events.each do |event| %>
+        <div class="event-card">
+            <p><%= event.title %></p>
+            <p>Starts On <%= date_of event %> at <%= time_of event %></p>
+        </div>
+    <% end %>
+</div>

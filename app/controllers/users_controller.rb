@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def home
+      @events = Event.all
     end 
 
     # Sign-Up
