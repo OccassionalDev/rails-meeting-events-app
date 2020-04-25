@@ -1,1 +1,9 @@
-<h1>Hello, <%= current_user.full_name %></h1>
+<h1><%= @user.full_name %></h1>
+
+<h2>Current Hosted Events</h2>
+
+<% @user.events.each do |event| %>
+    <div class='user-event'>
+        <%= render partial: 'events/eventCard', locals: { event: event } %>
+    </div>
+<% end %>
