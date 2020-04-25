@@ -1,0 +1,21 @@
+<h1>Hello, <%= current_user.full_name %></h1>
+
+<% if current_user.reserved_events.any? %>
+<h2>Upcoming Reserved Events</h2>
+    <% current_user.reserved_events.each do |event| %>
+        <div class='reserved-event-card'>
+            <%= render partial: 'events/eventCard', locals: { event: event } %>
+        </div>
+    <% end %>
+<% end %>
+
+<h2>Your Created Events</h2>
+<% if current_user.events.any? %>
+        <% current_user.events.do |event| %>
+            <div class="user-created-event">
+                <%= render partial: 'events/eventCard', locals: { event: event } %>
+            </div>
+        <% end %>
+    <% else %>
+        <p>You do not have any created events, to create one you can <%= link_to 'click here', new_event_path %> or click on create an event from the navigation bar.</p>
+<% end %>
