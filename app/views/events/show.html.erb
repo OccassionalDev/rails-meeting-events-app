@@ -6,3 +6,11 @@
 
 <h3>About</h3>
 <p><%= @event.description %></p>
+
+<%= render partial: 'displayEditRemove', locals: { event: @event } %>
+
+<% if can_reserve?(@event) %>
+    <%= render partial: 'displayReserve', locals: { event: @event, reservation: @reservation } %>
+<% elsif !logged_in? %>
+    <p>To RSVP to this event, you must be logged in.</p>
+<% end %>

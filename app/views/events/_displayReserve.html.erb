@@ -1,8 +1,10 @@
-<% if @reservation.nil? %>
-    <%= form_tag(event_reservations_path) %>
+<% if reservation.nil? %>
+    <%= form_tag(event_path) do %>
         <%= submit_tag "RSVP" %>
     <% end %>
 
 <% else %>
-    <%= link_to 'Cancel Reservation', event_reservation_path, method: 'delete' %>
+    <%= form_tag event_reservation_path(reservation.id), method: "delete" do %>
+        <%= submit_tag "Cancel Reservation" %>
+    <% end %>
 <% end %>

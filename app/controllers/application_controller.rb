@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
     end 
 
     def can_edit_remove_and_view_event_reservations?(event)
-        logged_in? && is_event_creator(event)
+        logged_in? && is_event_creator?(event)
     end 
 
     private 
