@@ -1,9 +1,8 @@
 <% if can_edit_remove_and_view_event_reservations?(event) %>
     <div class='edit-remove-view-reservations'>
         <ul>
-            <li></li>
-            <li></li>
-            <li></li>
+            <li><%= link_to 'Edit Event', edit_event_path(event) %></li>
+            <li><%= link_to 'Remove Event', event_path(event), method: 'delete' %></li>
         </ul>
     </div>
 <% end %>
