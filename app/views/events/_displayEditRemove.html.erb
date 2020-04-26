@@ -1,2 +1,9 @@
-<% if is_event_creator?(event) && logged_in? %>
+<% if can_edit_remove_and_view_event_reservations?(event) %>
+    <div class='edit-remove-view-reservations'>
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
 <% end %>

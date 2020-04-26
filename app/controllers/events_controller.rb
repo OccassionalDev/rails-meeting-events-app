@@ -29,11 +29,10 @@ class EventsController < ApplicationController
     end 
 
     def update
-        if is_event_creator?(@event)
-            @event.update(event_params)
+        if @event.update(event_params)
             redirect_to root_url, notice: "The event was succesfully updated."
         else 
-            redirect_to root_url, alert: "You cannot edit this event."
+            render "new"
         end 
     end 
 
