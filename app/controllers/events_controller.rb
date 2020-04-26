@@ -6,7 +6,10 @@ class EventsController < ApplicationController
 
     def show
         @event = Event.find(params[:id])
-        @reservation = Reservation.find_by(event_id: params[:id], user_id: current_user.id)
+
+        if can_reserve(@event)
+            @reservation = Reservation.find_by(event_id: params[:id], user_id: current_user.id)
+        end 
     end 
 
     # Creating a new event
