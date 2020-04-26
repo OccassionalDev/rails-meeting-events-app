@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
-  
+  before_action :require_login, only: [:dashboard]
+
   def show
     @user = User.find(params[:id])
   end 
 
   def home
     @events = Event.all
+  end 
+
+  def dashboard
   end 
 
   # Sign-Up

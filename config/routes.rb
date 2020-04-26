@@ -7,9 +7,10 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
+  get '/users/dashboard' => 'users#dashboard'
 
-  resources :users
-  resources :sessions 
+  resources :users, only: [:home, :show, :new, :create, :dashboard]
+  resources :sessions, only: [:new, :create, :destroy]
 
   resources :events do 
     resources :reservations, only: [:index, :create, :destroy]

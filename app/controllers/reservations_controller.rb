@@ -1,4 +1,6 @@
 class ReservationsController < ApplicationController
+    before_action :require_login
+
     def index
         @event = Event.find(params[:event_id])
 
