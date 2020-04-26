@@ -10,5 +10,8 @@ Rails.application.routes.draw do
 
   resources :users
   resources :sessions 
-  resources :events
+
+  resources :events do 
+    resources :reservations, only: [:index, :create, :destroy]
+  end 
 end

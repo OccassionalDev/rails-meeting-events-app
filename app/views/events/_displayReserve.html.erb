@@ -1,2 +1,8 @@
-<% if logged_in? && !is_event_creator?(event) %>
+<% if @reservation.nil? %>
+    <%= form_tag(event_reservations_path) %>
+        <%= submit_tag "RSVP" %>
+    <% end %>
+
+<% else %>
+    <%= link_to 'Cancel Reservation', event_reservation_path, method: 'delete' %>
 <% end %>

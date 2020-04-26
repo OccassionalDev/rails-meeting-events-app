@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
         current_user.id == event.user_id
     end 
 
+    def can_reserve?(event)
+        logged_in? && !is_event_creator?(event)
+    end 
+
     private 
 
     def require_login 
