@@ -11,7 +11,7 @@
 
 <h2>Your Created Events</h2>
 <% if current_user.events.any? %>
-        <% current_user.events.do |event| %>
+        <% current_user.events.each do |event| %>
             <div class="user-created-event">
                 <%= render partial: 'events/eventCard', locals: { event: event } %>
             </div>
