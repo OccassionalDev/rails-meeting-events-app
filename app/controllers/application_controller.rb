@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     helper_method :logged_in?
     helper_method :is_event_creator?
     helper_method :can_reserve?
-    helper_method :can_edit_or_remove_event?
+    helper_method :can_edit_remove_and_view_event_reservations?
 
     def current_user
         User.find_by(id: session[:user_id])
@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
         logged_in? && !is_event_creator?(event)
     end 
 
-    def can_edit_or_remove_event?(event)
+    def can_edit_remove_and_view_event_reservations?(event)
         logged_in? && is_event_creator(event)
     end 
 
