@@ -18,7 +18,7 @@ class EventsController < ApplicationController
         @event = current_user.events.build(events_params)
 
         if @event.save
-            redirect_to root_url, notice: "Your event was succesfully created!"
+            redirect_to event_path(@event), notice: "Your event was succesfully created!"
         else 
             render 'new'
         end 
@@ -30,9 +30,9 @@ class EventsController < ApplicationController
 
     def update
         if @event.update(event_params)
-            redirect_to root_url, notice: "The event was succesfully updated."
+            redirect_to event_path(@event), notice: "The event was succesfully updated."
         else 
-            render "new"
+            render "edit"
         end 
     end 
 
