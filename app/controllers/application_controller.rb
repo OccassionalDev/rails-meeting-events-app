@@ -25,6 +25,10 @@ class ApplicationController < ActionController::Base
         logged_in? && is_event_creator?(event)
     end 
 
+    def can_create_review?(event)
+        logged_in? && !is_event_creator(event) && current_user.reserved_events.include?(event.id)
+    end 
+
     private 
 
     def require_login 
