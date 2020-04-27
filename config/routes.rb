@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   resources :events do 
     resources :reservations, only: [:index, :create, :destroy]
-    resources :reviews
+    resources :reviews, only: [:index, :new, :create]
   end 
 
   post '/events/:id' => 'events#reserve'
