@@ -1,12 +1,11 @@
 class EventsController < ApplicationController
     before_action :require_login, only: [:new, :create, :edit, :update, :reserve]
+    before_action :find_event, only: [:show, :edit, :update, :destroy, :reserve]
     
     def index
     end 
 
     def show
-        @event = Event.find(params[:id])
-
         if can_reserve?(@event)
             @reservation = Reservation.find_by(event_id: params[:id], user_id: current_user.id)
         end 
@@ -29,11 +28,10 @@ class EventsController < ApplicationController
 
     # Editing an event
     def edit 
-        @event = Event.find(params[:id])
     end 
 
     def update
-        if @event.update(event_params)
+        if @event.update(events_params)
             redirect_to event_path(@event), notice: "The event was successfully updated."
         else 
             render "edit"
@@ -42,8 +40,8 @@ class EventsController < ApplicationController
 
     # Destroy
     def destroy
-        @event = Event.find(params[:id]).destroy 
-        redirect_to root_url, notice: "Your event has been deleted successfully"
+        @event.destroy 
+        redirect_to users_dashboard_path, notice: "Your event has been deleted successfully"
     end 
 
     # Reserve an event
@@ -64,4 +62,8 @@ class EventsController < ApplicationController
     def events_params(*args)
         params.require(:event).permit(:title, :description, :date, :address, :start_time, :end_time)
     end  
+
+    def find_event
+        @event = Event.find(params[:id])
+    end 
 end 
