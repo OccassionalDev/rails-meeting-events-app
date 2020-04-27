@@ -1,4 +1,4 @@
-<h1>Hello, <%= current_user.full_name %></h1>
+<h1>Welcome To Your Dashboard, <%= current_user.full_name %></h1>
 
 <% if current_user.reserved_events.any? %>
 <h2>Upcoming Reserved Events</h2>
@@ -9,7 +9,7 @@
     <% end %>
 <% end %>
 
-<h2>Your Created Events</h2>
+<h2>Your Hosted Events</h2>
 <% if current_user.events.any? %>
         <% current_user.events.each do |event| %>
             <div class="user-created-event">

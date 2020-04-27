@@ -4,7 +4,7 @@
             <li><%= link_to 'Edit Event', edit_event_path(event) %></li>
 
             <li>
-                <%= form_tag event_path, method: "delete" do %>
+                <%= form_tag event_path(event.id), method: "delete" do %>
                     <%= submit_tag "Remove Event" %>
                 <% end %>
             </li>
