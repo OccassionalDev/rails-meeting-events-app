@@ -7,7 +7,6 @@ class Event < ActiveRecord::Base
     has_many :reservations
     has_many :attending_users, through: :reservations, source: :user
     has_many :reviews
-    has_many :user_ratings, through: :reviews, source: :user
 
     def valid_address?
         errors.add(:address, "must be a valid address") if address !~ /^\d+\s[A-z]+\s[A-z]+/

@@ -1,0 +1,18 @@
+<h1>Reviews For <%= @event.title %></h1>
+
+<% if can_create_review?(@event) %>
+    <%= link_to 'Leave a Review', new_event_review_path %>
+<% end %>
+
+<% if @event.reviews.any? %>
+    <% @event.reviews.each do |review| %>
+        <div class="user-review">
+            <p>Rating: <%= review.rating.to_s %>/5</p>
+            <p>Review By: <%= review.user.full_name %> on <%= review.created_at %></p>
+            <p><%= review.content %></p>
+        </div>
+    <% end %>
+
+<% else %>
+        <h2>No One Has Reviewed This Event Yet</h2>
+<% end %>

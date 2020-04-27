@@ -18,4 +18,6 @@ Rails.application.routes.draw do
   end 
 
   post '/events/:id' => 'events#reserve'
+
+  resources :reviews
 end

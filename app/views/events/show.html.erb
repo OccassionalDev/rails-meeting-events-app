@@ -14,3 +14,5 @@
 <% elsif !logged_in? %>
     <p>To RSVP to this event, you must be logged in.</p>
 <% end %>
+
+<%= link_to 'Reviews', event_reviews_path(@event.id) %>

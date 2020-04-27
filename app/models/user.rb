@@ -9,7 +9,6 @@ class User < ActiveRecord::Base
     has_many :reservations
     has_many :reserved_events, through: :reservations, source: :event
     has_many :reviews
-    has_many :event_reviews, through: :reviews, source: :event
 
     def full_name
         "#{self.first_name} #{self.last_name}"
