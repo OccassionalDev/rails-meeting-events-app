@@ -1,0 +1,3 @@
+<% if can_review?(event) %>
+    <%= link_to 'Review Event', new_event_review_path(event) %>
+<% end %>
