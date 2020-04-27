@@ -6,8 +6,6 @@ class ReservationsController < ApplicationController
 
         if @event.nil?
             redirect_to root_url, alert: "Event does not exist."
-        else  
-            @attending_users = @event.attending_users
         end 
     end 
 

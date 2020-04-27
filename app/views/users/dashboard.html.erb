@@ -14,7 +14,7 @@
         <% current_user.events.each do |event| %>
             <div class="user-created-event">
                 <%= render partial: 'events/eventCard', locals: { event: event } %>
-                <%= render partial: 'events/displayEditRemove', locals: { event: event } %>
+                <%= render partial: 'events/displayEditRemoveReservations', locals: { event: event } %>
             </div>
         <% end %>
     <% else %>

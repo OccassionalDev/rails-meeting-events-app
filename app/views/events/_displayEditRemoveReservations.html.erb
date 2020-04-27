@@ -8,6 +8,10 @@
                     <%= submit_tag "Remove Event" %>
                 <% end %>
             </li>
+
+            <li>
+                <%= link_to 'See Reserved Users', event_reservations_path(event.id) %></li>
+            </li>
         </ul>
     </div>
 <% end %>

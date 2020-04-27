@@ -7,7 +7,7 @@
 <h3>About</h3>
 <p><%= @event.description %></p>
 
-<%= render partial: 'displayEditRemove', locals: { event: @event } %>
+<%= render partial: 'displayEditRemoveReservations', locals: { event: @event } %>
 
 <% if can_reserve?(@event) %>
     <%= render partial: 'displayReserve', locals: { reservation: @reservation } %>

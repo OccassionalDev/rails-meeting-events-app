@@ -1,0 +1,12 @@
+<h1>Reserved Users For <%= @event.title %></h1>
+
+<% if @event.attending_users.any? %>
+    <ul>
+        <% @event.attending_users.each do |user| %>
+            <li><%= user.full_name %></li>
+        <% end %>
+    </ul>
+
+<% else %>
+    <h2>No one has reserved to your event yet.</h2>
+<% end %>
