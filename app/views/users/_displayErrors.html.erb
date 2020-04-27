@@ -1,0 +1,8 @@
+<% if data_type.errors.any? %>
+    <h2>Form was unable to be submitted because:</h2>
+    <ul>
+        <% data_type.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+    </ul>
+<% end %>

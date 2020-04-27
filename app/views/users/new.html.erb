@@ -1,14 +1,7 @@
 <h1>Sign Up</h1>
 
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
-    <% if @user.errors.any? %>
-        <h2>Account was unable to be created because:</h2>
-        <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-        </ul>
-    <% end %>
+    <%= render partial: 'displayErrors', locals: { data_type: @user } %>
 
     <%= f.label :first_name %><br/>
     <%= f.text_field :first_name, required: true%><br/>
