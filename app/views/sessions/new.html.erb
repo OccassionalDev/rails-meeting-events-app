@@ -14,6 +14,6 @@
 
   <%= submit_tag "Log In" %><br/>
 
-  Or <%= link_to(controller: 'users', action: 'new') { 'Login with Github' } %><br/>
+  Or <%= link_to('Log in with Facebook!', '/auth/facebook') %><br/>
   New User? <%= link_to(controller: 'users', action: 'new') { 'Click here to sign Up' } %>
 <% end %>

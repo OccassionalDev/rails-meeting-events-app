@@ -1,8 +1,8 @@
 <p><%= link_to event.title, event_path(event) %></p>
 
 <% if logged_in? && is_event_creator?(event) %>
-    <p>Hosted By: <%= link_to event.user.full_name, users_dashboard_path %></p>
+    <p>Hosted By: <%= link_to event.user.name, users_dashboard_path %></p>
 <% else %>
-    <p>Hosted By: <%= link_to event.user.full_name, user_path(event.user) %></p>
+    <p>Hosted By: <%= link_to event.user.name, user_path(event.user) %></p>
 <% end %>
 <p>Starts On <%= date_of event %> from <%= time_of event %></p>
