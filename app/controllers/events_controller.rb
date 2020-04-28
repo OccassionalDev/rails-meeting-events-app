@@ -1,8 +1,10 @@
 class EventsController < ApplicationController
     before_action :require_login, only: [:new, :create, :edit, :update, :reserve]
     before_action :find_event, only: [:show, :edit, :update, :destroy, :reserve]
-    
+
     def index
+        @search_name = params[:query]
+        @events = Event.search(params[:query])
     end 
 
     def show

@@ -14,7 +14,12 @@
       <nav>
         <h1><%= link_to 'Events and Meetups', root_path %></h1>
 
-        <!-- Add search bar here later on -->
+        <%= form_tag events_path, method: :get do %>
+          <p>
+            <%= text_field_tag :query, params[:query] %>
+            <%= submit_tag "Search", title: nil %>
+          </p>
+        <% end %>
 
         <ul>
           <% if !logged_in? || current_user == nil %>

@@ -15,4 +15,12 @@ class Event < ActiveRecord::Base
     def date_of_event_cannot_be_in_past
         errors.add(:date, "must not be a past date") if date.to_date < Date.today
     end 
+
+    def self.search(query)
+        if !query.empty?
+            self.where("TITLE LIKE ?", "%#{query}%")
+        else 
+            self.all
+        end 
+    end 
 end 
