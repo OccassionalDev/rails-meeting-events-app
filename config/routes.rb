@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
   get '/login' => 'sessions#new'
-  get '/auth/github/callback' => 'sessions#create'
+  get '/auth/:provider/callback', to: 'sessions#create'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   get '/users/dashboard' => 'users#dashboard'

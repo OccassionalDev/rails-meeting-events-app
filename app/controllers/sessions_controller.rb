@@ -29,6 +29,11 @@ class SessionsController < ApplicationController
 
     private
 
+    def auth_hash
+        request.env['omniauth.auth']
+    end
+
+
     def successful_login(user)
         self.current_user = user
         redirect_to root_url, notice: "Successfully logged in as #{user.name}"

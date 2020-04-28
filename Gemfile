@@ -24,6 +24,7 @@ gem 'jbuilder', '~> 2.7'
  
  gem 'omniauth'
  gem 'omniauth-github'
+ gem 'omniauth-rails_csrf_protection'
  gem 'dotenv-rails'
 
 # Use Active Storage variant
