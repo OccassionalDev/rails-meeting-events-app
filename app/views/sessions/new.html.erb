@@ -13,7 +13,7 @@
   <%= password_field_tag :password %><br/>
 
   <%= submit_tag "Log In" %><br/>
-
-  Or <%= link_to('Log in with Github!', '/auth/github', method: :post) %><br/>
-  New User? <%= link_to 'Click here to sign Up', signup_path %>
 <% end %>
+
+Or <%= link_to 'Log in with Github!', '/auth/github', method: "POST" %><br/>
+New User? <%= link_to 'Click here to sign Up', signup_path %>

@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
     def self.find_or_create_from_auth_hash(hash)
         find_or_create_by(email: hash[:info][:email]) do |u|
-            u.name = hash[:info][:name]
+            u.name = hash[:info][:nickname]
             u.password = SecureRandom.hex(64)
             u.password_confirmation = u.password
         end 
