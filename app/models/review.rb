@@ -9,4 +9,9 @@ class Review < ActiveRecord::Base
     def valid_rating?
         errors.add(:rating, "must be a rating between 1-5") if rating > 5 || rating < 1
     end 
+
+    scope :recent_reviews, -> {
+        recent_date = DateTime.now - 2
+        where("created_at >= ?", recent_date)
+    }
 end 
