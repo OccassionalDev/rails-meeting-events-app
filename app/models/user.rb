@@ -10,11 +10,26 @@ class User < ActiveRecord::Base
     has_many :reserved_events, through: :reservations, source: :event
     has_many :reviews
 
-    def self.find_or_create_from_auth_hash(hash)
-        find_or_create_by(email: hash[:info][:email]) do |u|
+    def self.create_oauth_user(hash)
+        pw = SecureRandom.hex(16)
+        
+        create! do |u|
+            u.uid = hash[:uid]
             u.name = hash[:info][:nickname]
-            u.password = SecureRandom.hex(64)
-            u.password_confirmation = u.password
+            u.email = hash[:info][:email]
+            u.password = pw 
+            u.password_confirmation = pw
         end 
+    end 
+
+    def self.find_or_create_from_auth_hash(hash)
+        user = find_by(uid: hash[:uid])
+
+        if !user 
+            create_oauth_user(hash)
+            user = find_by(uid: hash[:uid])
+        end 
+
+        user
     end 
 end 

@@ -1,9 +1,14 @@
 <h1><%= @user.name %></h1>
 
-<h2>Current Hosted Events</h2>
+<h2><%= @user.name %>'s Hosted Events</h2>
 
-<% @user.events.each do |event| %>
-    <div class='user-event'>
-        <%= render partial: 'events/eventCard', locals: { event: event } %>
-    </div>
+<% if @user.events.any? %>
+    <% @user.events.each do |event| %>
+        <div class='user-event'>
+            <%= render partial: 'events/eventCard', locals: { event: event } %>
+        </div>
+    <% end %>
+
+<% else %>
+        <p>This user does not have any events at this time.</p>
 <% end %>
