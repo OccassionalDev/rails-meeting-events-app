@@ -35,7 +35,7 @@ first_user.events.create(
     description: 'Learn about angular js at this event!',
     address: '108 Something St.', 
     start_time: '16:00',  
-    date: (Date.today - 1).to_s, 
+    date: (Date.today).to_s, 
     end_time: '17:00'
 )
 

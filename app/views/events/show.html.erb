@@ -9,10 +9,16 @@
 
 <%= render partial: 'displayEditRemoveReservations', locals: { event: @event } %>
 
-<% if can_reserve?(@event) %>
-    <%= render partial: 'displayReserve', locals: { reservation: @reservation } %>
-<% elsif !logged_in? %>
-    <p>To RSVP to this event, you must be logged in.</p>
+
+<% if can_event_be_reserved?(@event) %>
+    <% if can_reserve?(@event) %>
+        <%= render partial: 'displayReserve', locals: { reservation: @reservation } %>
+    <% elsif !logged_in? %>
+        <p>To RSVP to this event, you must be logged in.</p>
+    <% end %>
+
+<% else %>
+    <p>This event cannot be reserved to, as it is a past event.</p>
 <% end %>
 
 <%= link_to 'Reviews', event_reviews_path(@event.id) %>

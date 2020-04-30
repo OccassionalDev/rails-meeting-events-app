@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
     helper_method :can_reserve?
     helper_method :can_edit_remove_and_view_event_reservations?
     helper_method :can_create_review?
+    helper_method :can_event_be_reserved?
 
 
     def current_user=(user)
@@ -33,6 +34,10 @@ class ApplicationController < ActionController::Base
 
     def can_create_review?(event)
         logged_in? && !is_event_creator?(event) && current_user.reserved_events.include?(event) && current_user.reviews.find_by(event_id: event.id).nil?
+    end 
+
+    def can_event_be_reserved?(event)
+        !(event.date.to_date < Date.today)
     end 
 
     private 

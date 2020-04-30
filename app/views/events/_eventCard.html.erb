@@ -5,4 +5,9 @@
 <% else %>
     <p>Hosted By: <%= link_to event.user.name, user_path(event.user) %></p>
 <% end %>
-<p>Starts On <%= date_of event %> from <%= time_of event %></p>
+
+<% if can_event_be_reserved?(event) %>
+    <p>Starts On <%= date_of event %> from <%= time_of event %></p>
+<% else %>
+    <p>Was On <%= date_of event %> from <%= time_of event %></p>
+<% end %>
