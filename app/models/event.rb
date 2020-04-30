@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
     end 
 
     def self.search(query)
-        if !query.empty?
+        if query != ""
             self.where("TITLE LIKE ?", "%#{query}%")
         else 
             self.all
