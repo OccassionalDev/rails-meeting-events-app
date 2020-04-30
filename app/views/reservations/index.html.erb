@@ -3,7 +3,7 @@
 <% if @event.attending_users.any? %>
     <ul>
         <% @event.attending_users.each do |user| %>
-            <li><%= user.full_name %></li>
+            <li><%= user.name %></li>
         <% end %>
     </ul>
 
