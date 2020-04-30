@@ -4,6 +4,10 @@ class ReviewsController < ApplicationController
     def index
         @event = Event.find(params[:event_id])
     end 
+
+    def recent_reviews
+        @recent_reviews = Review.recent_reviews
+    end 
     
     def new
         if does_review_exist?(params[:event_id])
