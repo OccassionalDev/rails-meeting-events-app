@@ -8,9 +8,7 @@ class EventsController < ApplicationController
     end 
 
     def show
-        if can_reserve?(@event)
-            @reservation = Reservation.find_by(event_id: params[:id], user_id: current_user.id)
-        end 
+         @reservation = Reservation.find_by(event_id: @event.id, user_id: current_user.id)
     end 
 
     # Creating a new event

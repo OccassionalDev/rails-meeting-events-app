@@ -4,7 +4,7 @@
     <% end %>
 
 <% else %>
-    <%= form_tag event_reservation_path(reservation.id), method: "delete" do %>
+    <%= form_tag reservation_path(reservation.id), method: "delete" do %>
         <%= submit_tag "Cancel Reservation" %>
     <% end %>
 <% end %>
