@@ -48,11 +48,12 @@ class EventsController < ApplicationController
 
     # Reserve an event
     def reserve 
-        @event = Event.find(params[:id])
-
         if @event.nil?
             redirect_to root_url, alert: "Event cannot be reserved to, as it no longer exists."
 
+        elsif !can_event_be_reserved?(@event)
+            redirect_to event_path(@event), notice: "This event cannot be reserved, as the date for it already past."
+            
         else 
             current_user.reserved_events << @event
             redirect_to root_url, notice: "You have been successfully reserved to #{@event.title}."
