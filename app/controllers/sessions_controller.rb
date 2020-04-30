@@ -9,11 +9,7 @@ class SessionsController < ApplicationController
         # If logging in via omniauth route
         if auth_hash
             user = User.find_or_create_from_auth_hash(auth_hash)
-            if user
-                successful_login(user)
-            else 
-                redirect_to login_path, alert: "Something went wrong"
-            end 
+            successful_login(user)
         else 
         # Regular Login
             user = User.find_by_email(params[:email])
