@@ -7,9 +7,7 @@
 <% if @event.reviews.any? %>
     <% @event.reviews.each do |review| %>
         <div class="user-review">
-            <p>Rating: <%= review.rating.to_s %>/5</p>
-            <p>Review By: <%= review.user.name %> on <%= review.created_at %></p>
-            <p><%= review.content %></p>
+            <%= render partial: 'displayReview', locals: { review: review } %>
         </div>
     <% end %>
 

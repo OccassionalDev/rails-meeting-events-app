@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
 
   # Oauth
-  get "/auth/:provider/callback", to: "sessions#create", as: 'oauth_callback'
+  get "/auth/:provider/callback", to: "sessions#create"
   
   delete '/logout' => 'sessions#destroy'
 
@@ -29,5 +29,6 @@ Rails.application.routes.draw do
   end 
 
   post '/events/:id' => 'events#reserve'
+  get '/recent_reviews' => 'reviews#recent_reviews'
   resources :reviews
 end
