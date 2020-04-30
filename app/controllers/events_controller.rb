@@ -8,7 +8,9 @@ class EventsController < ApplicationController
     end 
 
     def show
-         @reservation = Reservation.find_by(event_id: @event.id, user_id: current_user.id)
+        if logged_in?
+             @reservation = Reservation.find_by(event_id: @event.id, user_id: current_user.id)
+        end 
     end 
 
     # Creating a new event

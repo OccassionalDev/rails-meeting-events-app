@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   post '/events/:id' => 'events#reserve'
   get '/recent_reviews' => 'reviews#recent_reviews'
+  
   resources :reviews
   resources :reservations, only: [:destroy]
 end
