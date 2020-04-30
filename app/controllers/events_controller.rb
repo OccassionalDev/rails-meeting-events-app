@@ -30,6 +30,9 @@ class EventsController < ApplicationController
 
     # Editing an event
     def edit 
+        if !is_event_creator?(@event)
+            redirect_to event_path(@event), alert: "You cannot edit this event."
+        end 
     end 
 
     def update
