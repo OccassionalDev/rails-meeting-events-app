@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/activerecord-hackery/ransack.git
+  revision: c9cc20de9e0f7bab92e0579c85bed64d614d23de
+  specs:
+    ransack (2.3.2)
+      activerecord (>= 5.2.1)
+      activesupport (>= 5.2.1)
+      i18n
+
+GIT
   remote: https://github.com/faker-ruby/faker.git
   revision: cdf2ce209afa2e4dc65e7ccc6066032d641996b9
   branch: master
@@ -300,6 +309,7 @@ DEPENDENCIES
   puma (~> 4.1)
   rails (~> 6.0.2, >= 6.0.2.2)
   rails-erd
+  ransack!
   sass-rails (>= 6)
   selenium-webdriver
   spring

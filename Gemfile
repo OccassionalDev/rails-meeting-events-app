@@ -28,10 +28,13 @@ gem 'jbuilder', '~> 2.7'
  gem 'omniauth-rails_csrf_protection'
 
 # Email Validation 
- gem "valid_email2"
+ gem 'valid_email2'
 
 # Country State Selection on forms
  gem 'country_state_select'
+
+# Sorting data on pages
+ gem 'ransack', github: 'activerecord-hackery/ransack'
 
 # Env Variables
  gem 'dotenv-rails'
