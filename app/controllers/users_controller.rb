@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   end 
 
   def home
-    @events = Event.all
+    @events = Event.all.order("date DESC")
   end 
 
   def dashboard
