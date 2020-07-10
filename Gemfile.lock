@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: cdf2ce209afa2e4dc65e7ccc6066032d641996b9
+  branch: master
+  specs:
+    faker (2.13.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -244,6 +252,9 @@ GEM
       thread_safe (~> 0.1)
     tzinfo-data (1.2019.3)
       tzinfo (>= 1.0.0)
+    valid_email2 (3.2.3)
+      activemodel (>= 3.2)
+      mail (~> 2.5)
     web-console (4.0.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -280,6 +291,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   country_state_select
   dotenv-rails
+  faker!
   jbuilder (~> 2.7)
   listen (>= 3.0.5, < 3.2)
   omniauth
@@ -295,6 +307,7 @@ DEPENDENCIES
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data
+  valid_email2
   web-console (>= 3.3.0)
   webdrivers
   webpacker (~> 4.0)

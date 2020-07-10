@@ -22,19 +22,25 @@ gem 'jbuilder', '~> 2.7'
 # Use Active Model has_secure_password
  gem 'bcrypt', '~> 3.1.7'
  
- # O-Auth 
+# O-Auth 
  gem 'omniauth'
  gem 'omniauth-github'
  gem 'omniauth-rails_csrf_protection'
 
- # Env Variables
+# Email Validation 
+ gem "valid_email2"
+
+# Country State Selection on forms
+ gem 'country_state_select'
+
+# Env Variables
  gem 'dotenv-rails'
 
 # Generate DB Relationship Diagram
  gem 'rails-erd', group: :development
 
- # Country State Selection On Forms
- gem 'country_state_select'
+# Generate data for database to seed with
+ gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master', group: :development
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
