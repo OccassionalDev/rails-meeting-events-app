@@ -3,7 +3,7 @@
 <div class="wrapper">
     <% @events.each do |event| %>
         <div class='event-card'>
-            <%= render partial: 'events/eventCard', locals: { event: event } %>
+            <%= render partial: 'events/partials/eventCard', locals: { event: event } %>
         </div>
     <% end %>
 </div>

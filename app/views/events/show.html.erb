@@ -7,12 +7,12 @@
 <h3>About</h3>
 <p><%= @event.description %></p>
 
-<%= render partial: 'displayEditRemoveReservations', locals: { event: @event } %>
+<%= render partial: 'events/partials/displayEditRemoveReservations', locals: { event: @event } %>
 
 
 <% if can_event_be_reserved?(@event) %>
     <% if can_reserve?(@event) %>
-        <%= render partial: 'displayReserve', locals: { reservation: @reservation } %>
+        <%= render partial: 'events/partials/displayReserve', locals: { reservation: @reservation } %>
     <% elsif !logged_in? %>
         <p>To RSVP to this event, you must be logged in.</p>
     <% end %>

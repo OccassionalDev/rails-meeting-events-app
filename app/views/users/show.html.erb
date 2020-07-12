@@ -5,7 +5,7 @@
 <% if @user.events.any? %>
     <% @user.events.each do |event| %>
         <div class='user-event'>
-            <%= render partial: 'events/eventCard', locals: { event: event } %>
+            <%= render partial: 'events/partials/eventCard', locals: { event: event } %>
         </div>
     <% end %>
 

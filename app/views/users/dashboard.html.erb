@@ -4,7 +4,7 @@
 <h2>Upcoming Reserved Events</h2>
     <% current_user.reserved_events.each do |event| %>
         <div class='reserved-event-card'>
-            <%= render partial: 'events/eventCard', locals: { event: event } %>
+            <%= render partial: 'events/partials/eventCard', locals: { event: event } %>
         </div>
     <% end %>
 <% end %>
@@ -13,8 +13,8 @@
 <% if current_user.events.any? %>
         <% current_user.events.each do |event| %>
             <div class="user-created-event">
-                <%= render partial: 'events/eventCard', locals: { event: event } %>
-                <%= render partial: 'events/displayEditRemoveReservations', locals: { event: event } %>
+                <%= render partial: 'events/partials/eventCard', locals: { event: event } %>
+                <%= render partial: 'events/partials/displayEditRemoveReservations', locals: { event: event } %>
             </div>
         <% end %>
     <% else %>
