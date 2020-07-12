@@ -6,7 +6,7 @@
         <div class="user-review">
             <p>Event: <%= link_to review.event.title, event_path(review.event) %></p>
             <p>Event Host: <%= link_to review.event.user.name, user_path(review.event.user) %></p>
-            <%= render partial: 'displayReview', locals: { review: review } %>
+            <%= render partial: 'reviews/partials/displayReview', locals: { review: review } %>
         </div>
     <% end %>
 <% else %>

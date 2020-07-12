@@ -7,7 +7,7 @@
 <% if @event.reviews.any? %>
     <% @event.reviews.each do |review| %>
         <div class="user-review">
-            <%= render partial: 'displayReview', locals: { review: review } %>
+            <%= render partial: 'reviews/partials/displayReview', locals: { review: review } %>
         </div>
     <% end %>
 
