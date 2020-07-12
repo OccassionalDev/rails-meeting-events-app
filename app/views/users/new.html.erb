@@ -1,7 +1,7 @@
 <h1>Sign Up</h1>
 
 <%= form_for(@user) do |f| %>
-    <%= render partial: 'displayErrors', locals: { data_type: @user } %>
+    <%= render partial: 'users/partials/displayErrors', locals: { data_type: @user } %>
 
     <%= f.label :name %><br/>
     <%= f.text_field :name, required: true%><br/>
