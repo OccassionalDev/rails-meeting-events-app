@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
     validates_presence_of :name, :email
     validates_uniqueness_of :email
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     has_many :events
     has_many :reservations
