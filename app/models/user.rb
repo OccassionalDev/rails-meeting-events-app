@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     validates_uniqueness_of :email
     validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
+    # has_one_attached :avatar
+
     has_many :events
     has_many :reservations
     has_many :reserved_events, through: :reservations, source: :event
