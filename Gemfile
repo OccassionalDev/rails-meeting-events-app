@@ -45,6 +45,10 @@ gem 'jbuilder', '~> 2.7'
  # Image Uploading
  gem 'carrierwave', '~> 2.0'
 
+ # Background Jobs
+ # gem 'sidekiq'
+ # gem 'sinatra'
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
