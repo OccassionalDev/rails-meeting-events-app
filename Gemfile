@@ -42,9 +42,6 @@ gem 'jbuilder', '~> 2.7'
 # Generate data for database to seed with
  gem 'faker', :git => 'https://github.com/faker-ruby/faker.git', :branch => 'master', group: :development
 
- # Image Uploading
- gem 'carrierwave', '~> 2.0'
-
  # Background Jobs
  # gem 'sidekiq'
  # gem 'sinatra'
