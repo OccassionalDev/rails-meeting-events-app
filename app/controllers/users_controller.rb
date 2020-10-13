@@ -14,19 +14,19 @@ class UsersController < ApplicationController
 
   # Sign-Up
   def new
-      @user = User.new
+    @user = User.new
   end 
 
   def create
-      @user = User.create(user_params)
+    @user = User.create(user_params)
 
-      if @user.save
-        session[:user_id] = @user.id
-        redirect_to root_url, notice: "Account succesfully created!"
-      
-      else 
-        render "new"
-      end 
+    if @user.save
+      session[:user_id] = @user.id
+      redirect_to root_url, notice: "Account succesfully created!"
+    
+    else 
+      render "new"
+    end 
   end 
 
   private 
