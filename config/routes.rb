@@ -12,14 +12,17 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
 
   # Oauth
-  get "/auth/:provider/callback", to: "sessions#create"
+  get '/auth/:provider/callback', to: 'sessions#create'
   
   delete '/logout' => 'sessions#destroy'
 
   get '/users/dashboard' => 'users#dashboard'
 
-  # Users and Login
+  # Users
   resources :users, only: [:home, :show, :new, :create, :dashboard]
+  # get '/users/account_settings' => 'users#account_settings'
+
+  # Login
   resources :sessions, only: [:new, :create, :destroy]
 
   # Event Routes
