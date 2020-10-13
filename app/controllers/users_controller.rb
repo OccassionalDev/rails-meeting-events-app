@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   def dashboard
   end 
 
+  def account_settings
+  end 
+
   # Sign-Up
   def new
     @user = User.new
